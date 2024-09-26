@@ -10,7 +10,7 @@ class UrlController extends Controller
 {
     public function home()
     {
-        $urls = request()->user()->urls()->latest()->get();
+        $urls = request()->user()->urls()->latest()->paginate(10);
         return view('home', compact('urls'));
     }
 
@@ -21,7 +21,7 @@ class UrlController extends Controller
         ]);
 
         $shortCode = Str::random(6);
-        
+
         request()->user()->urls()->create([
             'long_url' => $request->long_url,
             'short_code' => $shortCode,

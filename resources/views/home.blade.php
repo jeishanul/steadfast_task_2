@@ -1,5 +1,7 @@
 @extends('layouts.app')
+
 @section('title', 'URL List')
+
 @section('content')
     <div class="col-12 mt-4">
         <div class="card">
@@ -7,11 +9,11 @@
                 <form role="form" action="{{ route('url.store') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-sm-8 col-lg-10">
                             <x-input-group label="Long URL" type="text" name="long_url" id="long_url"
                                 placeholder="Enter your long url" required />
                         </div>
-                        <div class="col-2">
+                        <div class="col-sm-4 col-lg-2">
                             <x-button type="submit" class="btn btn-primary btn-block w-100 shorten-url-btn"
                                 label="Shorten URL" />
                         </div>
@@ -21,7 +23,7 @@
         </div>
     </div>
 
-    <div class="col-12 mt-4">
+    <div class="col-12 mt-2">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="card-title w-100">{{ __('Shortened URL List') }}</div>
@@ -98,6 +100,11 @@
                         @endif
                     </tbody>
                 </table>
+            </div>
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    {{ $urls->links('pagination::bootstrap-4') }}
+                </ul>
             </div>
         </div>
     </div>
