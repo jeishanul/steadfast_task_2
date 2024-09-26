@@ -27,7 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/urls', [UrlController::class, 'index'])->name('url.index');
     Route::post('/urls', [UrlController::class, 'store'])->name('url.store');
-    Route::get('/urls/{url}', [UrlController::class, 'show'])->name('url.show');
 });
 
 Route::get('/{code}', [UrlController::class, 'shorten'])->name('url.shorten');

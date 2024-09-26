@@ -29,11 +29,6 @@ class UrlController extends Controller
         return back()->with('success', 'Short URL generated successfully.');
     }
 
-    public function show(Url $url)
-    {
-        return view('url.show', compact('url'));
-    }
-
     public function shorten($code)
     {
         $url = Url::where('short_code', $code)->firstOrFail();
