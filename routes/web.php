@@ -5,10 +5,6 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Routes for Guest
 Route::middleware(['guest'])->group(function () {
     // Routes for Login
@@ -23,10 +19,12 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
+// Routes for Auth
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/urls', [UrlController::class, 'index'])->name('url.index');
-    Route::post('/urls', [UrlController::class, 'store'])->name('url.store');
+    Route::get('/', [UrlController::class, 'home'])->name('home');
+    Route::post('urls', [UrlController::class, 'store'])->name('url.store');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::get('/{code}', [UrlController::class, 'shorten'])->name('url.shorten');
+// Routes for Url
+Route::get('{code}', [UrlController::class, 'shorten'])->name('url.shorten');

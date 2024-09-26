@@ -1,6 +1,6 @@
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-        <a href="{{ config('app.url') }}" class="navbar-brand">
+        <a href="{{ route('home') }}" class="navbar-brand">
             <img src="{{ asset('assets/images/logo.svg') }}" alt="AdminLTE Logo" class="brand-image img-circle">
             <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
         </a>
@@ -10,12 +10,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        
+
 
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
             <li class="nav-item">
-                <a href="{{ route('url.index') }}" class="nav-link">Home</a>
-              </li>
+                <a href="{{ route('home') }}" class="nav-link">Home</a>
+            </li>
             <li class="nav-item dropdown user-menu mt-2">
                 <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown"
                     aria-expanded="true">
@@ -32,10 +32,7 @@
                         </p>
                     </li>
                     <li class="user-footer">
-                        <a href="javascript:void(0)" class="btn btn-default btn-flat">
-                            {{ __('Profile') }}
-                        </a>
-                        <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right">
+                        <a href="{{ route('logout') }}" class="btn btn-default w-100">
                             {{ __('Sign out') }}
                         </a>
                     </li>

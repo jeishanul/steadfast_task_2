@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class UrlController extends Controller
 {
-    public function index()
+    public function home()
     {
         $urls = request()->user()->urls()->latest()->get();
-        return view('url.index', compact('urls'));
+        return view('home', compact('urls'));
     }
 
     public function store(Request $request)
@@ -21,12 +21,13 @@ class UrlController extends Controller
         ]);
 
         $shortCode = Str::random(6);
+        
         request()->user()->urls()->create([
             'long_url' => $request->long_url,
             'short_code' => $shortCode,
         ]);
 
-        return back()->with('success', 'Short URL generated successfully.');
+        return back()->withSuccess(__('Short URL generated successfully.'));
     }
 
     public function shorten($code)

@@ -25,6 +25,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return to_route('url.index')->withSuccess(__('Login successfully'));
+        return to_route('home')->withSuccess(__('Login successfully'));
     }
 }

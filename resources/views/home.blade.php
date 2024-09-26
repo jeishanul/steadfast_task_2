@@ -50,28 +50,44 @@
                                     </td>
                                     <td>{{ $url->clicks }}</td>
                                     <td>
-                                        <a href="javascript:void(0)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#shortedUrlDetails{{ $url->id }}">
+                                        <a href="javascript:void(0)" class="btn btn-info btn-sm" data-toggle="modal"
+                                            data-target="#shortedUrlDetails{{ $url->id }}">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <div class="modal fade" id="shortedUrlDetails{{ $url->id }}" tabindex="-1" role="dialog" aria-labelledby="shortedUrlDetailsTitle{{ $url->id }}" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered static-modal" role="document">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <h5 class="modal-title" id="shortedUrlDetailsTitle{{ $url->id }}">Modal title</h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
+                                        <div class="modal fade" id="shortedUrlDetails{{ $url->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="shortedUrlDetailsTitle{{ $url->id }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered static" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="shortedUrlDetailsTitle{{ $url->id }}">
+                                                            {{ __('Shortened URL Details') }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="card-text">
+                                                            <strong>{{ __('Original URL') }} :</strong>
+                                                            {{ $url->long_url }}
+                                                        </div>
+                                                        <div class="card-text">
+                                                            <strong>{{ __('Short URL') }} :</strong>
+                                                            <a href="{{ route('url.shorten', $url->short_code) }}"
+                                                                target="_blank">{{ route('url.shorten', $url->short_code) }}</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                            {{ __('Close') }}
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div class="modal-body">
-                                                  ...
-                                                </div>
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                              </div>
                                             </div>
-                                          </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
