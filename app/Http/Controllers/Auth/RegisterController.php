@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function register($role)
+    public function register()
     {
-        return view('auth.register', compact('role'));
+        return view('auth.register');
     }
 
     public function registerRequest(RegisterRequest $request)
@@ -20,23 +20,11 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'password' => Hash::make($request->password)
         ]);
 
         Auth::login($user);
 
-        return $this->redirectUser();
-    }
-
-    protected function redirectUser()
-    {
-        $user = Auth::user();
-
-        if ($user->role->value === 'admin') {
-            return to_route('admin.category.index')->withSuccess(__('Login successfully'));
-        }
-
-        return to_route('user.submitted.forms.index')->withSuccess(__('Login successfully'));
+        return to_route('url.index')->withSuccess(__('Login successfully'));
     }
 }

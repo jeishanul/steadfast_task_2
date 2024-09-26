@@ -19,21 +19,10 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
-            return $this->redirectUser();
+            return to_route('url.index')->withSuccess(__('Login successfully'));
         }
 
         return back()->withError(__('Invalid credentials'));
-    }
-
-    protected function redirectUser()
-    {
-        $user = Auth::user();
-
-        if ($user->role->value === 'admin') {
-            return to_route('admin.category.index')->withSuccess(__('Login successfully'));
-        }
-
-        return to_route('user.submitted.forms.index')->withSuccess(__('Login successfully'));
     }
 
     public function logout()

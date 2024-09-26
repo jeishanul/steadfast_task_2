@@ -10,40 +10,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Category') }}</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li>
-                            <a href="{{ route('admin.category.index') }}" class="dropdown-item">{{ __('List') }}</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.category.create') }}" class="dropdown-item">{{ __('Create') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Form Template') }}</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li>
-                            <a href="{{ route('admin.category.index') }}" class="dropdown-item">{{ __('List') }}</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.category.create') }}"
-                                class="dropdown-item">{{ __('Create') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        
 
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+            <li class="nav-item">
+                <a href="{{ route('url.index') }}" class="nav-link">Home</a>
+              </li>
             <li class="nav-item dropdown user-menu mt-2">
                 <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown"
                     aria-expanded="true">
@@ -63,7 +35,7 @@
                         <a href="javascript:void(0)" class="btn btn-default btn-flat">
                             {{ __('Profile') }}
                         </a>
-                        <a href="{{ route('user.logout') }}" class="btn btn-default btn-flat float-right">
+                        <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right">
                             {{ __('Sign out') }}
                         </a>
                     </li>

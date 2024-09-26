@@ -28,12 +28,7 @@
         </div>
     </form>
 
-    <div class="divider_section">
-        <span>Sign up</span>
-    </div>
-
-    <div class="d-flex justify-content-between">
-        <a href="{{ route('register', 'admin') }}" class="text-center">As an admin</a>
-        <a href="{{ route('register', 'user') }}" class="text-center">As a user</a>
-    </div>
+    <p class="my-2">
+        <a href="{{ route('register') }}" class="text-center">{{ __('I don\'t have an account') }}</a>
+    </p>
 @endsection

@@ -5,8 +5,6 @@
 @section('content')
     <form action="{{ route('register.request') }}" method="post">
         @csrf
-        <input type="hidden" name="role" value="{{ $role ?? 'user' }}">
-
         <x-input-group label="Name" type="text" name="name" id="name" placeholder="Enter your name"
             value="{{ old('name') }}" required />
 
